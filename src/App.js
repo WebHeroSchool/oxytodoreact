@@ -6,7 +6,7 @@ const ItemList = () => (<ul>
 	<li>3</li>
 </ul>);
 
-const App = () =>(<div>
+const App = () => (<div>
 	<h1>HELLO WORD!</h1>
 	<ItemList />
 </div>)
