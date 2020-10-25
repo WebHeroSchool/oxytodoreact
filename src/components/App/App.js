@@ -25,7 +25,7 @@ const App = () =>{
 	  <InputItem />
 	  <ItemList items={items} />
 	  <Footer count ={3} />
-    </div>)
+    </div>);
 }
 
 export default App;
