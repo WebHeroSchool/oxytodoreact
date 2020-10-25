@@ -6,7 +6,7 @@ import './App.css';
 
 const todoItem = 'Написать приложение';
 
-const App = () =>{
+const App = () => {
     const items = [
         {
         	value: 'Написать приложение'
@@ -26,7 +26,7 @@ const App = () =>{
 	  <ItemList items={items} />
 	  <Footer count ={3} />
     </div>);
-}
+};
 
 export default App;
 
