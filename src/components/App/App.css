@@ -1,0 +1,17 @@
+.wrap {
+  margin: auto;
+  width: 350px;
+  font-family: Helvetica;
+  font-size: 20px;
+  color: #0B173B;
+}
+
+.wrap_title {
+  font-family: Helvetica;
+  font-size: 45px;
+}
+
+.wrap_footer {
+  color: #610B0B;
+}
+
