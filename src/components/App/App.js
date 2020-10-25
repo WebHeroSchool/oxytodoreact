@@ -5,12 +5,27 @@ import Footer from '../Footer/Footer.js';
 
 const todoItem = 'Написать приложение';
 
-const App = () => (<div>
-	<h1>todos</h1>
-	<InputItem />
-	<ItemList todoItem={todoItem} />
-	<Footer count={3} />
-</div>)
+const App = () =>{
+    const items = [
+        {
+        	value: 'Написать приложение'
+        },
+        {
+        	value: 'Прочитать теорию'
+        },
+        {
+        	value: 'Сдать задание'
+        }
+    ];
+
+    return(
+ 	<div>
+	  <h1>todos</h1>
+	  <InputItem />
+	  <ItemList items={items} />
+	  <Footer count={3} />
+    </div>)
+}
 
 export default App;
 
