@@ -6,7 +6,7 @@ const InputItem = () => (<div>
 	    id="standart-dense"
 	    label="Добавить дело"
 	    margin="dense"
-	 />
+	/>
 </div>);
 
 export default InputItem;
