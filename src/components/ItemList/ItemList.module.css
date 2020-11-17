@@ -1,13 +1,4 @@
-.item{
-  color: #0b173b;
-  display: flex;
-}
-
-.done {
-  color:#00bfff;
-}
-
-.list_item {
+.item_list {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,3 +8,6 @@
   flex: 1;
 }
 
+ul {
+  padding: 0;
+}
