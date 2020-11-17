@@ -11,5 +11,13 @@
   font-size: 45px;
 }
 
+.list_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
+.item_wrap {
+  flex: 1;
+}
 
