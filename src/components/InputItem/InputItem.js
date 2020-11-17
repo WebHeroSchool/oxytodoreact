@@ -3,7 +3,7 @@ import TextField from '@material-ui/core/TextField';
 
 const InputItem = () => (<div>
 	<TextField
-	    id="standart-dense"
+	    id="Dense"
 	    label="Добавить дело"
 	    margin="dense"
 	/>
