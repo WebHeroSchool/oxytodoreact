@@ -9,9 +9,14 @@ const ItemList = ({items, onClickDone}) => (<ul>
     	<Checkbox
     	    checked={item.isDone}
     	    tabIndex={-1}
-    	    onClick={()=>onClickDone(item.isDone)}
+    	    onClick={()=>onClickDone(item.id)}
     	/>
-    	<Item value={item.value} isDone={item.isDone} onClickDone={onClickDone} />
+    	<Item
+    	    value={item.value}
+    	    isDone={item.isDone} 
+    	    id={item.id}
+    	    onClickDone={onClickDone}
+        />
     	<div className={styles.item_wrap}></div>
     <DeleteIcon /></div>)}
 </ul>);
