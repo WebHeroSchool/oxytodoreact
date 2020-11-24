@@ -4,18 +4,20 @@ import Button from '@material-ui/core/Button';
 
 class InputItem extends React.Component {
 	state = {
-		inputValue:''
+		inputValue:'',
+		inputLabel:'Добавить дело'
 	};
 
     onButtonClick=()=> {
     	if(this.state.inputValue != ''){
     	    this.setState({
-    		    inputValue: ''
+    		    inputValue: '',
+    		    inputLabel:'Добавить дело'
     	    });
 
     	    this.props.onClickAdd(this.state.inputValue);
     	}   else{this.setState({
-                label="Error"
+                inputLabel:"Ошибка"
     	    });
     		
     	};
@@ -27,7 +29,7 @@ class InputItem extends React.Component {
 		return  (<div>
 	        <TextField
 	            id="Dense"
-	            label="Добавить дело"
+	            label={this.state.inputLabel}
 	            margin="dense"
                 fullWidth
                 value={this.state.inputValue}
