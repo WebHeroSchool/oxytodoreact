@@ -5,5 +5,9 @@ const Footer = ({ count}) =>
  	    Осталось выполнить дел:{count}
     </span>);
 
+Footer.defaultProps = {
+    	count: 0
+    };
+
 export default Footer;
 

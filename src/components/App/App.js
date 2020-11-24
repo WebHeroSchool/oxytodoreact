@@ -27,7 +27,7 @@ class App extends React.Component {
     };
     
     onClickDone = id => {
-        const newItemList = this.state.items.map(item=>{
+        const newItemList = this.state.items.map(item => {
             const newItem = { ...item};
 
             if(item.id===id) {
@@ -40,9 +40,9 @@ class App extends React.Component {
         this.setState({ items: newItemList });
     };
     
-    onClickDelete = id => this.setState(state=>({ items: state.items.filter(item=>item.id !=id)}));
+    onClickDelete = id => this.setState(state => ({ items: state.items.filter(item => item.id !=id)}));
 
-    onClickAdd = value => this.setState(state=>({
+    onClickAdd = value => this.setState(state => ({
         items: [
             ...state.items,
             {
@@ -63,7 +63,7 @@ class App extends React.Component {
                     items={this.state.items}
                     onClickDone={this.onClickDone} 
                     onClickDelete={this.onClickDelete} />
-                <Footer count ={this.state.count} />
+                <Footer count={this.state.count} />
             </div>);
     }
 };
