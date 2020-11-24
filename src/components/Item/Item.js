@@ -13,6 +13,6 @@ const Item = ({value,isDone,id}) => (<span className={
 
 Item.defaultProps = {
 	isDone: false
-}
+};
 
 export default Item;

@@ -5,7 +5,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import styles from '../ItemList/ItemList.module.css';
 
 const ItemList = ({items, onClickDone,onClickDelete}) => (<ul>
-    {items.map(item => <div className={styles.item_list} key={item.id}>
+    {items.map(item => (<div className={styles.item_list} key={item.id})>
     	<Checkbox
     	    checked={item.isDone}
     	    tabIndex={-1}
