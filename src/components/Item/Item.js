@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import styles from './Item.module.css';
+import PropTypes from 'prop-types';
 
 const Item = ({value,isDone,id}) => (<span className={
 	classnames({
@@ -13,6 +14,11 @@ const Item = ({value,isDone,id}) => (<span className={
 
 Item.defaultProps = {
 	isDone: false
+};
+
+Item.propTypes = {
+	value: PropTypes.string,
+	isDone: PropTypes.bool.isRequired
 };
 
 export default Item;
