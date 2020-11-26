@@ -5,15 +5,15 @@ import PropTypes from 'prop-types';
 
 class Item extends React.Component{
 	componentDidMount() {
-		console.log('componentDidMount');
+		this.timerID = setInterval(() => console.log('Утечка памяти1'),1000);
 	}
 
 	componentDidUpdate() {
-		console.log('componentUpDate');
+		console.log('componentUpDate1');
 	}
 
 	componentWillUnmount() {
-		console.log('componentWillUnmount');
+		clearInterval(this.timerID);
 	}
 
 

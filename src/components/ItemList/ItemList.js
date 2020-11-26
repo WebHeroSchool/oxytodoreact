@@ -5,17 +5,6 @@ import Checkbox from '@material-ui/core/Checkbox';
 import styles from '../ItemList/ItemList.module.css';
 
 class ItemList extends React.Component {
-	componentDidMount() {
-		console.log('componentDidMount');
-	}
-
-	componentDidUpdate() {
-		console.log('componentUpDate');
-	}
-
-	componentWillUnmount() {
-		console.log('componentWillUnmount');
-	}
 
 	render(){
 		const {items, onClickDone,onClickDelete}= this.props;
