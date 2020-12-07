@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import InputItem from '../InputItem/InputItem.js';
 import ItemList from '../ItemList/ItemList.js';
 import Footer from '../Footer/Footer.js';
@@ -28,6 +28,13 @@ const App = () => {
     const [items,setItems] = useState(state.items);
     const [count,setCount] = useState(state.count);
 
+    useEffect(() => {
+    console.log('update');
+});
+
+useEffect(() => {
+    console.log('mount');
+});
 
     const onClickDone = id => {
         const newItemList = items.map(item => {
