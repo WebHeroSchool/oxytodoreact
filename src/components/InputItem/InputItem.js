@@ -1,8 +1,57 @@
-import React from 'react';
+import React,{ useState} from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
-class InputItem extends React.Component {
+function InputItem () {
+	const state = {
+		inputValue:'',
+		inputLabel:'Добавить дело'
+	}
+
+    const[inputValue,setInputValue] = useState(state.InputValue)
+
+	const onButtonClick = () => {
+		if(setInputValue !== ''){
+            state.InputItem({
+            	inputValue: '',
+    		    inputLabel:'Добавить дело'
+            });
+            
+            const onClickAdd = () => setInputValue;
+
+		}   else {setInputValue({
+			    inputLabel:"Ошибка"
+		    });
+
+    }
+    
+    const [inputLabel,setInputLabel] = useState(state.InputValue)
+		return  (<div>
+	        <TextField
+	            id="Dense"
+	            label={setInputLabel}
+	            margin="dense"
+                fullWidth
+                value={setInputValue}
+                onChange={event => setInputValue({inputValue:event.target.value})}
+	        />
+	        <Button
+	            variant="contained"
+	            color="primary"
+	            onClick={onButtonClick}
+	            fullWidth
+	        >
+	            Добавить
+	        </Button>
+        </div>);
+	}
+}
+
+export default InputItem;
+
+
+
+/*class InputItem extends React.Component {
 	state = {
 		inputValue:'',
 		inputLabel:'Добавить дело'
@@ -48,4 +97,4 @@ class InputItem extends React.Component {
 }
 
 export default InputItem;
-
+*/

@@ -1,33 +1,36 @@
-import React from 'react';
+import React, {useState} from 'react';
 import InputItem from '../InputItem/InputItem.js';
 import ItemList from '../ItemList/ItemList.js';
 import Footer from '../Footer/Footer.js';
 import styles from './App.module.css';
 
-class App extends React.Component {
-    state = {
-        items:[
-                {
-                    value: 'Написать приложение',
-                    isDone: false,
-                    id: 1
-                },
-                {
-                    value: 'Прочитать теорию',
-                    isDone: false,
-                    id: 2
-                },
-                {
-                    value: 'Сдать задание',
-                    isDone: true,
-                    id: 3
-                }
-            ],
-            count: 3    
+const App = () => {
+    const state = {
+        items :[
+            {
+                value: 'Написать приложение',
+                isDone: false,
+                id: 1   
+            },
+            {
+                value: 'Прочитать теорию',
+                isDone: false,
+                id: 2
+            },
+            {
+                value: 'Сдать задание',
+                isDone: true,
+                id: 3
+            }
+        ],
+        count:3
     };
-    
-    onClickDone = id => {
-        const newItemList = this.state.items.map(item => {
+    const [items,setItems] = useState(state.items);
+    const [count,setCount] = useState(state.count);
+
+
+    const onClickDone = id => {
+        const newItemList = items.map(item => {
             const newItem = { ...item};
 
             if(item.id===id) {
@@ -37,35 +40,34 @@ class App extends React.Component {
             return newItem;
         });
 
-        this.setState({ items: newItemList });
+        setItems(newItemList);
     };
-    
-    onClickDelete = id => this.setState(state => ({ items: state.items.filter(item => item.id !==id)}));
 
-    onClickAdd = value => this.setState(state => ({
-        items: [
-            ...state.items,
+    const onClickDelete = id => setItems(items.filter(item => item.id !==id));
+
+    const onClickAdd = value => {
+        setItems([
+            ...items,
             {
                 value ,
                 isDone: false,
-                id: state.count + 1
+                id: count + 1
             }
-        ],
-        count: state.count + 1
-    }));
+        ]);
+        setCount(count + 1);
+    };
 
-    render() {
-        return(
+    return(
             <div className={styles.wrap}>
                 <h1 className={styles.title}>Важные дела</h1>
-                <InputItem  onClickAdd={this.onClickAdd} />
+                <InputItem  onClickAdd={onClickAdd} />
                 <ItemList 
-                    items={this.state.items}
-                    onClickDone={this.onClickDone} 
-                    onClickDelete={this.onClickDelete} />
-                <Footer count={this.state.count} />
-            </div>);
-    }
+                    items={items}
+                    onClickDone={onClickDone} 
+                    onClickDelete={onClickDelete} />
+                <Footer count={count} />
+            </div>
+    );
 };
 
 export default App;
