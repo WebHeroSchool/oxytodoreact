@@ -8,8 +8,8 @@ class InputItem extends React.Component {
 		inputLabel:'Добавить дело'
 	};
 
-    onButtonClick=()=> {
-    	if(this.state.inputValue != ''){
+    onButtonClick=() => {
+    	if(this.state.inputValue !== ''){
     	    this.setState({
     		    inputValue: '',
     		    inputLabel:'Добавить дело'
@@ -33,7 +33,7 @@ class InputItem extends React.Component {
 	            margin="dense"
                 fullWidth
                 value={this.state.inputValue}
-                onChange={event=>this.setState({inputValue:event.target.value})}
+                onChange={event => this.setState({inputValue:event.target.value})}
 	        />
 	        <Button
 	            variant="contained"
