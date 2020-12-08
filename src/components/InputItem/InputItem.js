@@ -28,17 +28,17 @@ class InputItem extends React.Component {
 		const {onClickAdd} = this.props;
 		return  (<div>
 	        <TextField
-	            id="Dense"
-	            label={this.state.inputLabel}
-	            margin="dense"
+	            id = "Dense"
+	            label = {this.state.inputLabel}
+	            margin = "dense"
                 fullWidth
-                value={this.state.inputValue}
-                onChange={event => this.setState({inputValue:event.target.value})}
+                value = {this.state.inputValue}
+                onChange = {event => this.setState({inputValue:event.target.value})}
 	        />
 	        <Button
-	            variant="contained"
-	            color="primary"
-	            onClick={this.onButtonClick}
+	            variant = "contained"
+	            color = "primary"
+	            onClick = {this.onButtonClick}
 	            fullWidth
 	        >
 	            Добавить
