@@ -1,5 +1,7 @@
 body {
+  padding-top: 50px;
   font-family: Helvetica;
+  background: #E0F8F7;
 }
 
 .app_wrap {
@@ -10,9 +12,15 @@ body {
 }
 
 .sidebar {
+  padding-top: 40px;
   grid-area: sidebar;
 }
 
 .content {
   grid-area: content;
 }
+
+.link {
+  text-decoration: none;
+}
+
