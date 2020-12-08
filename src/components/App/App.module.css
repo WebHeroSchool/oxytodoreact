@@ -1,23 +1,18 @@
-.wrap {
+body {
+  font-family: Helvetica;
+}
+
+.app_wrap {
+  display: grid;
+  grid-template-areas: 'sidebar ... content content';
   margin: auto;
-  width: 350px;
-  font-family: Helvetica;
-  font-size: 20px;
-  color: #0b173b;
+  width: 500px;
 }
 
-.title {
-  font-family: Helvetica;
-  font-size: 45px;
+.sidebar {
+  grid-area: sidebar;
 }
 
-.list_item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.content {
+  grid-area: content;
 }
-
-.item_wrap {
-  flex: 1;
-}
-

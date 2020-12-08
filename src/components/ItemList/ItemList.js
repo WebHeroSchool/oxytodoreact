@@ -7,22 +7,22 @@ import styles from '../ItemList/ItemList.module.css';
 class ItemList extends React.Component {
 
 	render(){
-		const {items, onClickDone,onClickDelete}= this.props;
+		const {items, onClickDone,onClickDelete} = this.props;
 
 		return (<ul>
-            {items.map(item => (<div className={styles.item_list} key={item.id}>
+            {items.map(item => (<div className = {styles.item_list} key={item.id}>
     	        <Checkbox
-    	            checked={item.isDone}
-    	            tabIndex={-1}
-    	            onClick={() => onClickDone(item.id)}
+    	            checked = {item.isDone}
+    	            tabIndex = {-1}
+    	            onClick = {() => onClickDone(item.id)}
     	        />
     	        <Item
-    	            value={item.value}
-    	            isDone={item.isDone} 
-    	            id={item.id}
-    	            onClickDone={onClickDone}
+    	            value = {item.value}
+    	            isDone = {item.isDone} 
+    	            id = {item.id}
+    	            onClickDone = {onClickDone}
                 />
-    	        <div className={styles.item_wrap}>
+    	        <div className = {styles.item_wrap}>
     	        </div>
                 <DeleteIcon 
                     onClick={() => onClickDelete(item.id)}
