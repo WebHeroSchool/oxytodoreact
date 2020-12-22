@@ -8,7 +8,9 @@ const octokit = new Octokit();
 class About extends React.Component {
 	state = {
 		isLoading: true,
-		repoList: []
+		repoList: [],
+		bio:'',
+		name:''
 	}
 
     componentDidMount(){
@@ -20,6 +22,17 @@ class About extends React.Component {
                 isLoading: false
     		});
     	});
+
+        octokit.users.getByUsername({
+            username:'oxyrud'
+        }).then(({data}) => {
+        	this.setState({
+        		bio: data,
+        		name: data
+
+        	});
+        });
+
     }
 
 	render() {
@@ -28,9 +41,12 @@ class About extends React.Component {
 		return (
             <CardContent>
 	            <h1> { isLoading ? <CircularProgress /> : 'Мои репозитории'}</h1>
-                {!isLoading && <ol>
+                {!isLoading &&
+                	<p>{name}</p>
+                	<p>{bio}</p>
+                	<ol>
                 	{repoList.map(repo => (<li key = {repo.id}>
-                		{repo.name}
+                		<a href={repo.html_url}>{repo.name}</a>
                 	</li>))}
                 	</ol>}
 	        </CardContent>
