@@ -10,7 +10,8 @@ class About extends React.Component {
 		isLoading: true,
 		repoList: [],
 		bio:'',
-		name:''
+		name:'',
+		isError: false
 	}
 
     componentDidMount(){
@@ -27,8 +28,8 @@ class About extends React.Component {
             username:'oxyrud'
         }).then(({data}) => {
         	this.setState({
-        		bio: data,
-        		name: data
+        		bio: data.bio,
+        		name: data.name
 
         	});
         });
@@ -36,20 +37,19 @@ class About extends React.Component {
     }
 
 	render() {
-		const {isLoading, repoList} = this.state;
+		const {isLoading, repoList,name,bio} = this.state;
 
 		return (
+			
             <CardContent>
-	            <h1> { isLoading ? <CircularProgress /> : 'Мои репозитории'}</h1>
-                {!isLoading &&
-                	<p>{name}</p>
-                	<p>{bio}</p>
-                	<ol>
-                	{repoList.map(repo => (<li key = {repo.id}>
+                <h1> {isLoading ? <CircularProgress /> : name} </h1>
+                <h2> {isLoading ? <CircularProgress /> : bio} </h2>
+	            <h2> { isLoading ? <CircularProgress /> : 'My  repos'}</h2>
+                {!isLoading &&<ol>{repoList.map(repo => (<li key = {repo.id}>
                 		<a href={repo.html_url}>{repo.name}</a>
                 	</li>))}
                 	</ol>}
-	        </CardContent>
+	        </CardContent>    
 	    );
 	}    
 }
