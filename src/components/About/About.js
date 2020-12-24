@@ -11,7 +11,9 @@ class About extends React.Component {
 		repoList: [],
 		bio:'',
 		name:'',
-		isError: false
+		isError: false,
+		errorValue:''
+
 	}
 
     componentDidMount(){
@@ -26,7 +28,8 @@ class About extends React.Component {
     	.catch(e => 
     		this.setState({
     	        isError: true,
-    	        isLoading: false
+    	        isLoading: false,
+                errorValue: value
     	    })
     	)
     	
@@ -41,14 +44,16 @@ class About extends React.Component {
         .catch(e => 
     		this.setState({
     	        isError: true,
-    	        isLoading: false
-    	    })
+    	        isLoading: false,
+    	        
+    	    }),
+    	   
     	)
 
     }
 
 	render() {
-		const {isLoading, repoList,name,bio,isError} = this.state;
+		const {isLoading, repoList,name,bio,isError,errorValue} = this.state;
 
 		return (
 			<h2> {!isError ?
@@ -61,7 +66,7 @@ class About extends React.Component {
                 	</li>))}
                 	</ol>}
 	        </CardContent> 
-	        : 'Error'} </h2>       
+	        : errorValue} </h2>       
 	    );
 	}    
 }
