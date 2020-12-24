@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 class Item extends React.Component{
 	
     render(){
-    	const {value,isDone,id} = this.props;
+    	const {value,isDone} = this.props;
     	return (<span className = {
 	        classnames ({
                 [styles.item]: true,
