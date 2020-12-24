@@ -12,7 +12,8 @@ class About extends React.Component {
 		bio:'',
 		name:'',
 		isError: false,
-		errorValue:''
+		errorValue:'',
+		foto: {}
 
 	}
 
@@ -22,14 +23,17 @@ class About extends React.Component {
     	}).then(({data}) => {
     		this.setState({
                 repoList: data,
-                isLoading: false
+                isLoading: false,
+                foto: data.avatar_url
+                
     		})
+    		console.log(data)
     	})
     	.catch(e => 
     		this.setState({
     	        isError: true,
     	        isLoading: false,
-                errorValue: value
+                errorValue: e.name
     	    })
     	)
     	
@@ -45,7 +49,7 @@ class About extends React.Component {
     		this.setState({
     	        isError: true,
     	        isLoading: false,
-    	        
+    	        errorValue: e.name
     	    }),
     	   
     	)
@@ -53,11 +57,12 @@ class About extends React.Component {
     }
 
 	render() {
-		const {isLoading, repoList,name,bio,isError,errorValue} = this.state;
+		const {isLoading, repoList,name,bio,isError,errorValue,foto} = this.state;
 
 		return (
 			<h2> {!isError ?
             <CardContent>
+                <div> {isLoading ? <CircularProgress /> : <img scr= {foto}></img>} </div>
                 <h1> {isLoading ? <CircularProgress /> : name} </h1>
                 <h2> {isLoading ? <CircularProgress /> : bio} </h2>
 	            <h2> { isLoading ? <CircularProgress /> : 'My  repos'}</h2>
