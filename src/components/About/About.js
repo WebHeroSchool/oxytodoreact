@@ -40,7 +40,7 @@ class About extends React.Component {
 		const {isLoading, repoList,name,bio} = this.state;
 
 		return (
-			
+			<h2> {isError ?
             <CardContent>
                 <h1> {isLoading ? <CircularProgress /> : name} </h1>
                 <h2> {isLoading ? <CircularProgress /> : bio} </h2>
@@ -49,7 +49,8 @@ class About extends React.Component {
                 		<a href={repo.html_url}>{repo.name}</a>
                 	</li>))}
                 	</ol>}
-	        </CardContent>    
+	        </CardContent> 
+	        : 'Error'} </h2>   
 	    );
 	}    
 }
