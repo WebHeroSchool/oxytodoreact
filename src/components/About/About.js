@@ -22,6 +22,11 @@ class About extends React.Component {
                 repoList: data,
                 isLoading: false
     		});
+    	.catch(e => 
+    		this.setState({
+    	        isError: true,
+    	        isLoading: false
+    	    });
     	});
 
         octokit.users.getByUsername({
@@ -37,10 +42,10 @@ class About extends React.Component {
     }
 
 	render() {
-		const {isLoading, repoList,name,bio} = this.state;
+		const {isLoading, repoList,name,bio,isError} = this.state;
 
 		return (
-			<h2> {isError ?
+			<h2> {!isError ?
             <CardContent>
                 <h1> {isLoading ? <CircularProgress /> : name} </h1>
                 <h2> {isLoading ? <CircularProgress /> : bio} </h2>
@@ -50,7 +55,7 @@ class About extends React.Component {
                 	</li>))}
                 	</ol>}
 	        </CardContent> 
-	        : 'Error'} </h2>   
+	        : 'Error'} </h2>       
 	    );
 	}    
 }
