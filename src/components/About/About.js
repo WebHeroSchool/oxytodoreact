@@ -2,6 +2,7 @@ import React from 'react';
 import CardContent from '@material-ui/core/CardContent';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {Octokit} from '@octokit/rest';
+import styles from '../About/About.module.css';
 
 const octokit = new Octokit();
 
@@ -13,7 +14,7 @@ class About extends React.Component {
 		name:'',
 		isError: false,
 		errorValue:'',
-		foto: {}
+		
 
 	}
 
@@ -24,7 +25,7 @@ class About extends React.Component {
     		this.setState({
                 repoList: data,
                 isLoading: false,
-                foto: data.avatar_url
+                
                 
     		})
     		console.log(data)
@@ -57,12 +58,14 @@ class About extends React.Component {
     }
 
 	render() {
-		const {isLoading, repoList,name,bio,isError,errorValue,foto} = this.state;
+		const {isLoading, repoList,name,bio,isError,errorValue} = this.state;
 
 		return (
 			<h2> {!isError ?
             <CardContent>
-                <div> {isLoading ? <CircularProgress /> : <img scr= {foto}></img>} </div>
+                /* ошибка
+                {<div> {isLoading ? <CircularProgress /> : <img scr= {repoList.map(repo =>{repo.avatar_url})}></img>} </div>}
+                */
                 <h1> {isLoading ? <CircularProgress /> : name} </h1>
                 <h2> {isLoading ? <CircularProgress /> : bio} </h2>
 	            <h2> { isLoading ? <CircularProgress /> : 'My  repos'}</h2>
