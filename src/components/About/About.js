@@ -14,7 +14,7 @@ class About extends React.Component {
 		name:'',
 		isError: false,
 		errorValue:'',
-		
+		avatar:''
 
 	}
 
@@ -43,7 +43,8 @@ class About extends React.Component {
         }).then(({data}) => {
         	this.setState({
         		bio: data.bio,
-        		name: data.name
+        		name: data.name,
+        		avatar: data.avatar_url
         	})
         })
         .catch(e => 
@@ -58,14 +59,14 @@ class About extends React.Component {
     }
 
 	render() {
-		const {isLoading, repoList,name,bio,isError,errorValue} = this.state;
+		const {isLoading, repoList,name,bio,isError,errorValue,avatar} = this.state;
 
 		return (
 			<h2> {!isError ?
             <CardContent>
-                /* ошибка
-                {<div> {isLoading ? <CircularProgress /> : <img scr= {repoList.map(repo =>{repo.avatar_url})}></img>} </div>}
-                */
+                
+                 <div> {isLoading ? <CircularProgress /> : <img src= {avatar}></img>} </div>
+                
                 <h1> {isLoading ? <CircularProgress /> : name} </h1>
                 <h2> {isLoading ? <CircularProgress /> : bio} </h2>
 	            <h2> { isLoading ? <CircularProgress /> : 'My  repos'}</h2>
