@@ -14,8 +14,9 @@ class About extends React.Component {
 		name:'',
 		isError: false,
 		errorValue:'',
-		avatar:''
-
+		avatar:'',
+        language:'',
+        updated:''
 	}
 
     componentDidMount(){
@@ -25,10 +26,10 @@ class About extends React.Component {
     		this.setState({
                 repoList: data,
                 isLoading: false,
-                
-                
+                updated: data.updated_at,
+                language: data.language  
     		})
-    		console.log(data)
+    		console.log(data);
     	})
     	.catch(e => 
     		this.setState({
@@ -52,26 +53,27 @@ class About extends React.Component {
     	        isError: true,
     	        isLoading: false,
     	        errorValue: e.name
-    	    }),
-    	   
+    	    }),   
     	)
-
     }
 
 	render() {
-		const {isLoading, repoList,name,bio,isError,errorValue,avatar} = this.state;
+		const {isLoading, repoList,name,bio,isError,errorValue,avatar,language,updated} = this.state;
 
 		return (
 			<h2> {!isError ?
             <CardContent>
-                
-                 <div> {isLoading ? <CircularProgress /> : <img src= {avatar}></img>} </div>
-                
-                <h1> {isLoading ? <CircularProgress /> : name} </h1>
-                <h2> {isLoading ? <CircularProgress /> : bio} </h2>
+            <div className={styles.about_wrap}>
+                <div className={styles.about_avatar}> {isLoading ? <CircularProgress /> : <img src= {avatar}></img>} </div>
+                <div className={styles.about_me}>
+                    <h1> {isLoading ? <CircularProgress /> : name} </h1>
+                    <h2> {isLoading ? <CircularProgress /> : bio} </h2>
+                </div>
+            </div>
 	            <h2> { isLoading ? <CircularProgress /> : 'My  repos'}</h2>
                 {!isLoading &&<ol>{repoList.map(repo => (<li key = {repo.id}>
                 		<a href={repo.html_url}>{repo.name}</a>
+                		<div>{language}{updated}</div>
                 	</li>))}
                 	</ol>}
 	        </CardContent> 

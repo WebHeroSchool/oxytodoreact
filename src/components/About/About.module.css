@@ -1,4 +1,26 @@
-body {
-  font-family: Helvetica;
-  font-size: 
+.about_wrap {
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1,h2 {
+  font-size: 20px;
+  color: #0b173b;
+}
+
+.about_avatar {
+  display: flex;
+}
+
+img {
+  width: 145px;
+}
+
+.about_me {
+  
+}
+
+a {
+  color: #0b173b;
+  text-decoration: none;
 }
