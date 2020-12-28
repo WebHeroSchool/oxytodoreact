@@ -25,9 +25,7 @@ class About extends React.Component {
     	}).then(({data}) => {
     		this.setState({
                 repoList: data,
-                isLoading: false,
-                updated: data.updated_at,
-                language: data.language  
+                isLoading: false
     		})
     		console.log(data);
     	})
@@ -58,10 +56,10 @@ class About extends React.Component {
     }
 
 	render() {
-		const {isLoading, repoList,name,bio,isError,errorValue,avatar,language,updated} = this.state;
+		const {isLoading, repoList,name,bio,isError,errorValue,avatar} = this.state;
 
 		return (
-			<h2> {!isError ?
+			<div> {!isError ?
             <CardContent>
             <div className={styles.about_wrap}>
                 <div className={styles.about_avatar}> {isLoading ? <CircularProgress /> : <img src= {avatar}></img>} </div>
@@ -73,11 +71,11 @@ class About extends React.Component {
 	            <h2> { isLoading ? <CircularProgress /> : 'My  repos'}</h2>
                 {!isLoading &&<ol>{repoList.map(repo => (<li key = {repo.id}>
                 		<a href={repo.html_url}>{repo.name}</a>
-                		<div>{language}{updated}</div>
+                		<div>{repo.language}{repo.updated_at}</div>
                 	</li>))}
                 	</ol>}
 	        </CardContent> 
-	        : errorValue} </h2>       
+	        : errorValue} </div>       
 	    );
 	}    
 }

@@ -6,7 +6,7 @@ import styles from './Todo.module.css';
 
 const Todo = () => {
     const state = {
-        items :[
+        items: JSON.parse(localStorage.getItem("items")) || [
             {
                 value: 'Написать приложение',
                 isDone: false,
@@ -29,11 +29,7 @@ const Todo = () => {
     const [count,setCount] = useState(state.count);
 
     useEffect(() => {
-    console.log('update');
-});
-
-useEffect(() => {
-    console.log('mount');
+    localStorage.setItem("items",JSON.stringify(items));
 });
 
     const onClickDone = id => {
