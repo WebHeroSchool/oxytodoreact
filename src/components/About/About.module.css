@@ -18,10 +18,47 @@ img {
 }
 
 .about_me {
+  padding-left: 30px;
   
 }
 
 a {
   color: #0b173b;
   text-decoration: none;
+}
+
+.repo {
+
+}
+
+.repo_info {
+
+}
+
+.html {
+
+}
+
+.css {
+
+}
+
+.js {
+
+}
+
+.fork {
+
+}
+
+.stargazers {
+
+}
+
+.pagination {
+
+}
+
+.pagination_button {
+  
 }

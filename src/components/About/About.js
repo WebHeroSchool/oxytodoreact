@@ -3,6 +3,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {Octokit} from '@octokit/rest';
 import styles from '../About/About.module.css';
+import classnames from 'classnames';
 
 const octokit = new Octokit();
 
@@ -10,14 +11,30 @@ class About extends React.Component {
 	state = {
 		isLoading: true,
 		repoList: [],
-		bio:'',
-		name:'',
+		bio: '',
+		name: '',
 		isError: false,
-		errorValue:'',
-		avatar:'',
-        language:'',
-        updated:''
-	}
+		errorValue: '',
+		avatar: '',
+        language: '',
+        updated: '',
+        firstRepo: 0,
+        lastRepo:1
+	};
+
+	lastPage = () => {
+		this.setState({
+			fistRepo: this.state.firstRepo - 1,
+			lastRepo: this.state.lastRepo - 1,
+		});
+	};
+
+	nextPage = () => {
+		this.setState({
+			fistRepo: this.state.firstRepo + 1,
+			lastRepo: this.state.lastRepo + 1,
+		});
+	};
 
     componentDidMount(){
     	octokit.repos.listForUser({
@@ -27,8 +44,8 @@ class About extends React.Component {
                 repoList: data,
                 isLoading: false
     		})
-    		console.log(data);
     	})
+
     	.catch(e => 
     		this.setState({
     	        isError: true,
@@ -43,7 +60,8 @@ class About extends React.Component {
         	this.setState({
         		bio: data.bio,
         		name: data.name,
-        		avatar: data.avatar_url
+        		avatar: data.avatar_url,
+        		profile: data.html_url
         	})
         })
         .catch(e => 
@@ -56,8 +74,9 @@ class About extends React.Component {
     }
 
 	render() {
-		const {isLoading, repoList,name,bio,isError,errorValue,avatar} = this.state;
-
+		const {isLoading, repoList,name,bio,isError,errorValue,avatar,profile,firstRepo,lastRepo} = this.state;
+        const repoListPage = repoList.slice(firstRepo,lastRepo);
+		
 		return (
 			<div> {!isError ?
             <CardContent>
@@ -66,14 +85,51 @@ class About extends React.Component {
                 <div className={styles.about_me}>
                     <h1> {isLoading ? <CircularProgress /> : name} </h1>
                     <h2> {isLoading ? <CircularProgress /> : bio} </h2>
+                    <a href={profile}>{'Profile at Githab'}</a>
                 </div>
             </div>
 	            <h2> { isLoading ? <CircularProgress /> : 'My  repos'}</h2>
-                {!isLoading &&<ol>{repoList.map(repo => (<li key = {repo.id}>
+                {!isLoading &&<ol className={styles.repo}>{repoList.map(repo => (<li key = {repo.id}>
                 		<a href={repo.html_url}>{repo.name}</a>
-                		<div>{repo.language}{repo.updated_at}</div>
+                		<div className={styles.repo_info}>
+                		    <span className={classnames({
+                		   	    [styles.language]: true,
+                		   	    [styles.html]: repo.language === 'HTML',
+                		   	    [styles.css]: repo.language === 'CSS',
+                		   	    [styles.js]: repo.language === 'JavaScript'
+                		    })}>
+                		       {repo.language}
+                		    </span>
+                		    <span className={styles.stargazers}>
+                		        {repo.stargazers_count}
+                		    </span>
+                		    <span className={styles.fork}>
+                		        {repo.forks_count}
+                		    </span>
+                		    <span className={styles.updated}>
+                		        {'updated'}
+                		        {new Date(repo.updated_at).toLocaleString('en-US',{
+                                day: 'numeric',
+                                month: 'short',
+                                year: 'numeric',})}
+                            </span>
+                        </div>
                 	</li>))}
-                	</ol>}
+                </ol>}
+                <div className={styles.pagination}>
+                    <button className={styles.pagination_button}
+                        onClick={this.lastPage}
+                        disabled={firstRepo < 1}
+                    >
+                    Back
+                    </button>
+                    <button className={styles.pagination_button}
+                        onClick={this.nextPage}
+                        disabled={repoList < lastRepo}
+                    >
+                    Forward
+                    </button>
+                </div>
 	        </CardContent> 
 	        : errorValue} </div>       
 	    );
