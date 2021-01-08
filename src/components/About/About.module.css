@@ -13,7 +13,7 @@ h1,h2 {
   display: flex;
 }
 
-img {
+.avatar_img {
   width: 140px;
   border: 1px solid #BDBDBD;
   box-sizing: border-box;
@@ -30,6 +30,11 @@ img {
 a {
   color: #0b173b;
   text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  opacity: .5;
 }
 
 .repo {
@@ -40,8 +45,8 @@ a {
 
 .repo_info {
   display: flex;
-    justify-content: flex-start;
-    align-items: center;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .language {
@@ -71,8 +76,22 @@ a {
   background: #FFC700;
 }
 
+.fork_img {
+  width: 14px;
+  height: 14px;
+  margin-right: 4px; 
+  margin-top: 5px;
+}
+
 .fork {
   padding-left: 10px;
+}
+
+.star_img {
+  width: 15px;
+  height: 15px;
+  margin-right: 4px; 
+  margin-top: 5px;
 }
 
 .stargazers {
@@ -95,8 +114,9 @@ a {
   border-radius: 37px;
   color: #585858;
   font-weight: bold;
-  cursor: pointer
-
+  cursor: pointer;
+  margin-left: 20px;  
+  outline: none;
 }
 
 .pagination_button:hover {
@@ -106,7 +126,6 @@ a {
 }
 
 .pagination__button:active {
-    border: 2px solid #151515;
-    color: white;
+  border: 2px solid #151515;
 }
 

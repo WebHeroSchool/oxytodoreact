@@ -4,6 +4,8 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import {Octokit} from '@octokit/rest';
 import styles from '../About/About.module.css';
 import classnames from 'classnames';
+import fork from '../About/Fork.svg';
+import star from '../About/star.svg';
 
 const octokit = new Octokit();
 
@@ -24,14 +26,14 @@ class About extends React.Component {
 
 	lastPage = () => {
 		this.setState({
-			fistRepo: this.state.firstRepo - 1,
+			firstRepo: this.state.firstRepo - 1,
 			lastRepo: this.state.lastRepo - 1,
 		});
 	};
 
 	nextPage = () => {
 		this.setState({
-			fistRepo: this.state.firstRepo + 1,
+			firstRepo: this.state.firstRepo + 1,
 			lastRepo: this.state.lastRepo + 1,
 		});
 	};
@@ -81,7 +83,7 @@ class About extends React.Component {
 			<div> {!isError ?
             <CardContent>
             <div className={styles.about_wrap}>
-                <div className={styles.about_avatar}> {isLoading ? <CircularProgress /> : <img src= {avatar}></img>} </div>
+                <div className={styles.about_avatar}> {isLoading ? <CircularProgress /> : <img className={styles.avatar_img} src= {avatar}></img>} </div>
                 <div className={styles.about_me}>
                     <h1> {isLoading ? <CircularProgress /> : name} </h1>
                     <h2> {isLoading ? <CircularProgress /> : bio} </h2>
@@ -89,7 +91,7 @@ class About extends React.Component {
                 </div>
             </div>
 	            <h2> { isLoading ? <CircularProgress /> : 'My  repos'}</h2>
-                {!isLoading &&<ol className={styles.repo}>{repoList.map(repo => (<li key = {repo.id}>
+                {!isLoading &&<ol className={styles.repo}>{repoListPage.map(repo => (<li key = {repo.id}>
                 		<a href={repo.html_url}>{repo.name}</a>
                 		<div className={styles.repo_info}>
                 		    <span className={classnames({
@@ -101,13 +103,15 @@ class About extends React.Component {
                 		       {repo.language}
                 		    </span>
                 		    <span className={styles.stargazers}>
+                		        <img className={styles.star_img} src={star} />
                 		        {repo.stargazers_count}
                 		    </span>
                 		    <span className={styles.fork}>
-                		        {repo.forks_count}
+                		        <img className={styles.fork_img} src={fork} />
+                		        {repo.forks_count}    
                 		    </span>
                 		    <span className={styles.updated}>
-                		        {'updated'}
+                		        {'updated '}
                 		        {new Date(repo.updated_at).toLocaleString('en-US',{
                                 day: 'numeric',
                                 month: 'short',
@@ -125,7 +129,7 @@ class About extends React.Component {
                     </button>
                     <button className={styles.pagination_button}
                         onClick={this.nextPage}
-                        disabled={repoList < lastRepo}
+                        disabled={repoList.length < lastRepo}
                     >
                     Forward
                     </button>

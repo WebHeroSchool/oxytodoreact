@@ -9,6 +9,7 @@ import About from '../About/About';
 import Contacts from'../Contacts/Contacts';
 
 import styles from'./App.module.css';
+import logo from '../App/WHS_black.svg';
 
 const App = () =>
     (<Router>
@@ -19,6 +20,7 @@ const App = () =>
     	            <Link to ='/todo' className = {styles.link}><MenuItem>Дела</MenuItem></Link>
     	            <Link to ='/contacts' className = {styles.link}><MenuItem>Контакты</MenuItem></Link>
     	        </MenuList>
+                <img className={styles.logo_img} src={logo} />
     	    </Card>
     	    <Card className = {styles.content}>
     	        <Route path='/' exact component = {About} />
