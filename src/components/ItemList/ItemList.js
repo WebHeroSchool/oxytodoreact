@@ -10,6 +10,7 @@ class ItemList extends React.Component {
 		const {items, onClickDone,onClickDelete} = this.props;
 
 		return (<ul>
+            console.log (items);
             {items.map(item => (<div className = {styles.item_list} key={item.id}>
     	        <Checkbox
     	            checked = {item.isDone}

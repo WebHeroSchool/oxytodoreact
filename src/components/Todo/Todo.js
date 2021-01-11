@@ -6,13 +6,14 @@ import styles from './Todo.module.css';
 
 const Todo = () => {
     const state = {
-        items: JSON.parse(localStorage.getItem("items")) || [ ],
+        items: JSON.parse(localStorage.getItem("items")) || [],
         filter:"all",   
-        count:0
     };
+
     const [items,setItems] = useState(state.items);
-    const [count,setCount] = useState(state.count);
-    const [item,setfilter] = useState(state.filter);
+    const [count,setCount] = useState(0);
+    const [filter,setfilter] = useState("all");
+    const [filteredItems,setFilteredItems]= useState(state.filteredItems);
 
     useEffect(() => {
     localStorage.setItem("items",JSON.stringify(items));
@@ -22,7 +23,7 @@ const Todo = () => {
         const newItemList = items.map(item => {
             const newItem = { ...item};
 
-            if(item.id===id) {
+            if(item.id === id) {
                 newItem.isDone = !item.isDone;
             }
 
@@ -30,6 +31,7 @@ const Todo = () => {
         });
 
         setItems(newItemList);
+        onClickFilter(filterState(newItemList,filter));
     };
 
     const onClickDelete = id => {
@@ -39,40 +41,41 @@ const Todo = () => {
     };
 
     const onClickAdd = value => {
-        setItems([
+        const newItemList =[
             ...items,
             {
                 value ,
                 isDone: false,
                 id: count + 1
             }
-        ]);
+        ]
+        setItems(newItemList);
+        setFilteredItems(filterState(newItemList,filter));
         setCount(count + 1);
     };
 
-    filterItems = (items,filter) => {
-        if(filter === 'all') {
-            return items;
-        } else if (filter === 'activ') {
-            return items.filter((item) => (!item.isDone));
-        } else if (filter === 'done') {
-            return items.filter((item) => item.isDone);
-        }
-    };
+    const onClickFilter = string => {
+        const newItemList = items;
+        setfilter(string);
+        setFilteredItems(filterState(newItemList,string));
+    }
 
-    onFilterChange = (filter) = {
-        setfilter
-    };
-    
+    function filterState (arr,string) {
+        return (string === 'active' ?
+            arr.filter(item => !item.isDone) :
+                string === 'done' ?
+                arr.filter(item => item.isDone) : arr)
+    }
+
     return(
             <div className = {styles.wrap}>
                 <h1 className = {styles.title}>Важные дела</h1>
                 <InputItem  onClickAdd = {onClickAdd} />
                 <ItemList 
-                    items = {items}
+                    items = {filteredItems}
                     onClickDone = {onClickDone} 
                     onClickDelete = {onClickDelete} />
-                <Footer count = {count} />
+                <Footer count = {items.length} />
             </div>
     );
 };
