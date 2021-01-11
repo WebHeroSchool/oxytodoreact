@@ -12,8 +12,8 @@ const Todo = () => {
 
     const [items,setItems] = useState(state.items);
     const [count,setCount] = useState(0);
-    const [filter,setfilter] = useState("all");
-    const [filteredItems,setFilteredItems]= useState(state.filteredItems);
+    const [filter,setFilter] = useState("all");
+    const [filteredItems,setFilteredItems]= useState(state.items);
 
     useEffect(() => {
     localStorage.setItem("items",JSON.stringify(items));
@@ -31,7 +31,7 @@ const Todo = () => {
         });
 
         setItems(newItemList);
-        onClickFilter(filterState(newItemList,filter));
+        setFilteredItems(filterState(newItemList,filter));
     };
 
     const onClickDelete = id => {
@@ -56,7 +56,7 @@ const Todo = () => {
 
     const onClickFilter = string => {
         const newItemList = items;
-        setfilter(string);
+        setFilter(string);
         setFilteredItems(filterState(newItemList,string));
     }
 
@@ -75,7 +75,7 @@ const Todo = () => {
                     items = {filteredItems}
                     onClickDone = {onClickDone} 
                     onClickDelete = {onClickDelete} />
-                <Footer count = {items.length} />
+                <Footer onClickFilter = {onClickFilter} count = {items.length} />
             </div>
     );
 };

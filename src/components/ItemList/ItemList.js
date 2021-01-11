@@ -10,7 +10,6 @@ class ItemList extends React.Component {
 		const {items, onClickDone,onClickDelete} = this.props;
 
 		return (<ul>
-            console.log (items);
             {items.map(item => (<div className = {styles.item_list} key={item.id}>
     	        <Checkbox
     	            checked = {item.isDone}
@@ -21,7 +20,7 @@ class ItemList extends React.Component {
     	            value = {item.value}
     	            isDone = {item.isDone} 
     	            id = {item.id}
-    	            onClickDone = {onClickDone}
+    	            onClickDone = {onClickDone(item.id)}
                 />
     	        <div className = {styles.item_wrap}>
     	        </div>
