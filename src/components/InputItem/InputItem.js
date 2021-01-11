@@ -17,7 +17,7 @@ class InputItem extends React.Component {
 
     	    this.props.onClickAdd(this.state.inputValue);
     	}   else{this.setState({
-                inputLabel:"Ошибка"
+                inputLabel:"Поле не должно быть пустым"
     	    });
     		
     	};

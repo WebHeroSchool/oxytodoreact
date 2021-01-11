@@ -1,0 +1,17 @@
+.footer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer_item {
+  font-size: 15px;
+}
+.footer_button {
+  border: 1.2px solid #BDBDBD;
+  box-sizing: border-box;
+  border-radius: 37px;
+  color: #585858;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+}

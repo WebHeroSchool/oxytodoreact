@@ -6,27 +6,13 @@ import styles from './Todo.module.css';
 
 const Todo = () => {
     const state = {
-        items: JSON.parse(localStorage.getItem("items")) || [
-            {
-                value: 'Написать приложение',
-                isDone: false,
-                id: 1   
-            },
-            {
-                value: 'Прочитать теорию',
-                isDone: false,
-                id: 2
-            },
-            {
-                value: 'Сдать задание',
-                isDone: true,
-                id: 3
-            }
-        ],
-        count:3
+        items: JSON.parse(localStorage.getItem("items")) || [ ],
+        filter:"all",   
+        count:0
     };
     const [items,setItems] = useState(state.items);
     const [count,setCount] = useState(state.count);
+    const [item,setfilter] = useState(state.filter);
 
     useEffect(() => {
     localStorage.setItem("items",JSON.stringify(items));
@@ -46,7 +32,11 @@ const Todo = () => {
         setItems(newItemList);
     };
 
-    const onClickDelete = id => setItems(items.filter(item => item.id !==id));
+    const onClickDelete = id => {
+        setItems(items.filter(item => item.id !==id));
+
+        setCount(count - 1);
+    };
 
     const onClickAdd = value => {
         setItems([
@@ -60,6 +50,20 @@ const Todo = () => {
         setCount(count + 1);
     };
 
+    filterItems = (items,filter) => {
+        if(filter === 'all') {
+            return items;
+        } else if (filter === 'activ') {
+            return items.filter((item) => (!item.isDone));
+        } else if (filter === 'done') {
+            return items.filter((item) => item.isDone);
+        }
+    };
+
+    onFilterChange = (filter) = {
+        setfilter
+    };
+    
     return(
             <div className = {styles.wrap}>
                 <h1 className = {styles.title}>Важные дела</h1>
