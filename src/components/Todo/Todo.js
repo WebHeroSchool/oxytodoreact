@@ -36,7 +36,6 @@ const Todo = () => {
 
     const onClickDelete = id => {
         setItems(items.filter(item => item.id !==id));
-
         setCount(count - 1);
     };
 
@@ -75,7 +74,10 @@ const Todo = () => {
                     items = {filteredItems}
                     onClickDone = {onClickDone} 
                     onClickDelete = {onClickDelete} />
-                <Footer onClickFilter = {onClickFilter} count = {items.length} />
+                <Footer
+                    onClickFilter = {onClickFilter} 
+                    count = {items.length}
+                    countdone = {items.filter(item => item.isDone).length}  />
             </div>
     );
 };
