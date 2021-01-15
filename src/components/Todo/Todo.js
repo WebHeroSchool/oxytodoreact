@@ -11,7 +11,7 @@ const Todo = () => {
     };
 
     const [items,setItems] = useState(state.items);
-    const [count,setCount] = useState(0);
+    const [count,setCount] = useState(items.length);
     const [filter,setFilter] = useState("all");
     const [filteredItems,setFilteredItems]= useState(state.items);
 
@@ -35,8 +35,9 @@ const Todo = () => {
     };
 
     const onClickDelete = id => {
-        setItems(items.filter(item => item.id !==id));
-        setCount(count - 1);
+        const newItemList = items.filter(item => item.id !==id)
+        setItems(newItemList);
+        setFilteredItems(filterState(newItemList,filter));
     };
 
     const onClickAdd = value => {

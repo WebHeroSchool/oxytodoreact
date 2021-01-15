@@ -15,12 +15,12 @@ const App = () =>
     (<Router>
         <div className = {styles.app_wrap}>
     	    <Card className = {styles.sidebar}>
-    	        <MenuList>
+    	        <MenuList className = {styles.sidebar_items}>
     	            <Link to ='/' className = {styles.link}><MenuItem>Обо мне</MenuItem></Link>
     	            <Link to ='/todo' className = {styles.link}><MenuItem>Дела</MenuItem></Link>
     	            <Link to ='/contacts' className = {styles.link}><MenuItem>Контакты</MenuItem></Link>
     	        </MenuList>
-                <img className={styles.logo_img} src={logo} />
+                <img className={styles.logo_img} src={logo}  alt="" />
     	    </Card>
     	    <Card className = {styles.content}>
     	        <Route path='/' exact component = {About} />

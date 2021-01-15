@@ -15,16 +15,12 @@ h1,h2 {
 
 .avatar_img {
   width: 140px;
-  border: 1px solid #BDBDBD;
   box-sizing: border-box;
   border-radius: 10px;
 }
 
 .about_me {
   padding-left: 30px;
-  border: 1px solid #BDBDBD;
-  box-sizing: border-box;
-  border-radius: 5px;
 }
 
 a {
@@ -129,3 +125,28 @@ a:hover {
   border: 2px solid #151515;
 }
 
+@media ( max-width: 700px){
+
+.repo {
+  padding: 5px;
+
+}
+
+.about_wrap {
+  flex-direction: column;
+}
+
+.avatar_img {
+  width: 100px;
+}
+}
+
+@media ( max-width: 550px) {
+  .updated {
+    display: none;
+  }
+
+  .pagination_button {
+    margin: 0;
+  }
+}

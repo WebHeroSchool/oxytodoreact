@@ -83,7 +83,7 @@ class About extends React.Component {
 			<div> {!isError ?
             <CardContent>
             <div className={styles.about_wrap}>
-                <div className={styles.about_avatar}> {isLoading ? <CircularProgress /> : <img className={styles.avatar_img} src= {avatar}></img>} </div>
+                <div className={styles.about_avatar}> {isLoading ? <CircularProgress /> : <img className={styles.avatar_img} src= {avatar}  alt=""></img>} </div>
                 <div className={styles.about_me}>
                     <h1> {isLoading ? <CircularProgress /> : name} </h1>
                     <h2> {isLoading ? <CircularProgress /> : bio} </h2>
@@ -103,11 +103,11 @@ class About extends React.Component {
                 		       {repo.language}
                 		    </span>
                 		    <span className={styles.stargazers}>
-                		        <img className={styles.star_img} src={star} />
+                		        <img className={styles.star_img} src={star}  alt="" />
                 		        {repo.stargazers_count}
                 		    </span>
                 		    <span className={styles.fork}>
-                		        <img className={styles.fork_img} src={fork} />
+                		        <img className={styles.fork_img} src={fork}  alt="" />
                 		        {repo.forks_count}    
                 		    </span>
                 		    <span className={styles.updated}>

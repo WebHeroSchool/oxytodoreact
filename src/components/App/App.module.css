@@ -1,23 +1,25 @@
-body {
+ body {
   padding-top: 50px;
-  font-family: Helvetica;
-  background: #e0f8f7;
+  font-family: 'Roboto', sans-serif;
+  background: url(../App/thomas-heintz-0tgMnMIYQ9Y-unsplash.jpg);
 }
 
 .app_wrap {
   display: grid;
   grid-template-areas: 'sidebar ... content content';
   margin: auto;
-  width: 500px;
+  width: 40%;
 }
 
 .sidebar {
   padding-top: 40px;
   grid-area: sidebar;
+  width: 95%;
 }
 
 .content {
   grid-area: content;
+  width: 100%;
 }
 
 .link {
@@ -30,3 +32,46 @@ body {
   margin-top: 100px;
   margin-left: 15px;
 }
+
+@media ( max-width: 950px) {
+
+.app_wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.logo_img {
+  margin:0;
+  width: 15%;
+}
+
+.sidebar_items {
+  display: flex;
+}
+}
+
+@media ( max-width: 850px){
+  .logo_img {
+    display: none;
+  }
+  .sidebar {
+    justify-content: center;
+    padding: 0;
+  }
+
+}
+
+@media ( max-width: 650px) {
+  .link{
+    font-size: 5px;
+    padding: 0;
+  }
+}
+
