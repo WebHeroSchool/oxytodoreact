@@ -14,7 +14,6 @@ const Contacts = () => {
 	            <div className={styles.contacts_mail}>
 	                <a className={styles.contacts_link} href="mailto:oxyrud@hotmail.com" target="_blank" rel="noopener noreferrer">
 	                <img className={styles.contacts_icon} src={mailicon} alt=""/>
-	                oxyrud@hotmail.com
 	                </a>
 	            </div>
 	            <div className={styles.contacts_facebook}>

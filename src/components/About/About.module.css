@@ -33,6 +33,9 @@ a:hover {
   opacity: .5;
 }
 
+a:active {
+  color: #a4a4a4;
+}
 .repo {
   border: 1px solid #BDBDBD;
   box-sizing: border-box;
