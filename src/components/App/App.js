@@ -1,7 +1,5 @@
 import React from 'react';
 import Card from '@material-ui/core/Card';
-import MenuItem from '@material-ui/core/MenuItem';
-import MenuList from '@material-ui/core/MenuList';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Todo from'../Todo/Todo';
 
@@ -15,11 +13,11 @@ const App = () =>
     (<Router>
         <div className = {styles.app_wrap}>
     	    <Card className = {styles.sidebar}>
-    	        <MenuList className = {styles.sidebar_items}>
+    	        <div className = {styles.sidebar_items}>
     	            <Link to ='/' className = {styles.link}><div className = {styles.sidebar_item}>Обо мне</div></Link>
     	            <Link to ='/todo' className = {styles.link}><div className = {styles.sidebar_item}>Дела</div></Link>
     	            <Link to ='/contacts' className = {styles.link}><div className = {styles.sidebar_item}>Контакты</div></Link>
-    	        </MenuList>
+    	        </div>
                 <img className={styles.logo_img} src={logo}  alt="" />
     	    </Card>
     	    <Card className = {styles.content}>

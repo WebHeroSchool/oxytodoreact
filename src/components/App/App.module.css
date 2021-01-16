@@ -14,7 +14,7 @@
 .sidebar {
   padding-top: 40px;
   grid-area: sidebar;
-  width: 100%;
+  width: 95%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -41,6 +41,10 @@
   margin-bottom: 20px;
   margin-left: 20px;
   
+}
+
+.link:active {
+  color: #a4a4a4;
 }
 
 @media ( max-width: 950px) {
@@ -74,8 +78,10 @@
     display: none;
   }
   .sidebar {
-    justify-content: center;
-    padding: 0;
+     margin-right: 0;
+  }
+  .sidebar_items {
+    justify-content: space-around;
   }
 
 }
@@ -83,7 +89,7 @@
 @media ( max-width: 650px) {
   .sidebar_items {
     font-size: 13px;
-    justify-content: space-around;
+    padding-bottom: 20px;
   }
   .sidebar_item {
     margin: 0;
