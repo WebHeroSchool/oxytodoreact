@@ -37,7 +37,7 @@ class InputItem extends React.Component {
 	        />
 	        <Button
 	            variant = "contained"
-	            color = "#585858"
+	            color = "default"
 	            onClick = {this.onButtonClick}
 	            fullWidth
 	        >

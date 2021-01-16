@@ -5,8 +5,7 @@
 }
 
 .app_wrap {
-  display: grid;
-  grid-template-areas: 'sidebar ... content content';
+  display: flex;
   margin: auto;
   width: 40%;
 }
@@ -14,11 +13,12 @@
 .sidebar {
   padding-top: 40px;
   grid-area: sidebar;
-  width: 95%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin-right: 20px;
+  align-items: center;
 }
 
 .sidebar_items {
@@ -38,9 +38,7 @@
 
 .logo_img {
   width: 80px;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  
+  margin-bottom: 20px;  
 }
 
 .link:active {
@@ -57,6 +55,7 @@
 .sidebar {
   flex-direction: row;
   margin-bottom: 5px;
+  width: 100%;
 }
 .sidebar_items {
   flex-direction: row;
