@@ -20,7 +20,7 @@ class ItemList extends React.Component {
     	            value = {item.value}
     	            isDone = {item.isDone} 
     	            id = {item.id}
-    	            onClickDone = {onClickDone}
+    	            onClick = { () => onClickDone(item.id)}
                 />
     	        <div className = {styles.item_wrap}>
     	        </div>

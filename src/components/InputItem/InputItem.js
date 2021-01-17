@@ -17,7 +17,7 @@ class InputItem extends React.Component {
 
     	    this.props.onClickAdd(this.state.inputValue);
     	}   else{this.setState({
-                inputLabel:"Ошибка"
+                inputLabel:"Поле не должно быть пустым"
     	    });
     		
     	};
@@ -37,7 +37,7 @@ class InputItem extends React.Component {
 	        />
 	        <Button
 	            variant = "contained"
-	            color = "primary"
+	            color = "default"
 	            onClick = {this.onButtonClick}
 	            fullWidth
 	        >

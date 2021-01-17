@@ -6,41 +6,24 @@ import styles from './Todo.module.css';
 
 const Todo = () => {
     const state = {
-        items :[
-            {
-                value: 'Написать приложение',
-                isDone: false,
-                id: 1   
-            },
-            {
-                value: 'Прочитать теорию',
-                isDone: false,
-                id: 2
-            },
-            {
-                value: 'Сдать задание',
-                isDone: true,
-                id: 3
-            }
-        ],
-        count:3
+        items: JSON.parse(localStorage.getItem("items")) || [],
+        filter:"all",   
     };
+
     const [items,setItems] = useState(state.items);
-    const [count,setCount] = useState(state.count);
+    const [count,setCount] = useState(items.length);
+    const [filter,setFilter] = useState("all");
+    const [filteredItems,setFilteredItems]= useState(state.items);
 
     useEffect(() => {
-    console.log('update');
-});
-
-useEffect(() => {
-    console.log('mount');
+    localStorage.setItem("items",JSON.stringify(items));
 });
 
     const onClickDone = id => {
         const newItemList = items.map(item => {
             const newItem = { ...item};
 
-            if(item.id===id) {
+            if(item.id === id) {
                 newItem.isDone = !item.isDone;
             }
 
@@ -48,31 +31,54 @@ useEffect(() => {
         });
 
         setItems(newItemList);
+        setFilteredItems(filterState(newItemList,filter));
     };
 
-    const onClickDelete = id => setItems(items.filter(item => item.id !==id));
+    const onClickDelete = id => {
+        const newItemList = items.filter(item => item.id !==id)
+        setItems(newItemList);
+        setFilteredItems(filterState(newItemList,filter));
+    };
 
     const onClickAdd = value => {
-        setItems([
+        const newItemList =[
             ...items,
             {
                 value ,
                 isDone: false,
                 id: count + 1
             }
-        ]);
+        ]
+        setItems(newItemList);
+        setFilteredItems(filterState(newItemList,filter));
         setCount(count + 1);
     };
+
+    const onClickFilter = string => {
+        const newItemList = items;
+        setFilter(string);
+        setFilteredItems(filterState(newItemList,string));
+    }
+
+    function filterState (arr,string) {
+        return (string === 'active' ?
+            arr.filter(item => !item.isDone) :
+                string === 'done' ?
+                arr.filter(item => item.isDone) : arr)
+    }
 
     return(
             <div className = {styles.wrap}>
                 <h1 className = {styles.title}>Важные дела</h1>
                 <InputItem  onClickAdd = {onClickAdd} />
                 <ItemList 
-                    items = {items}
+                    items = {filteredItems}
                     onClickDone = {onClickDone} 
                     onClickDelete = {onClickDelete} />
-                <Footer count = {count} />
+                <Footer
+                    onClickFilter = {onClickFilter} 
+                    count = {items.length}
+                    countdone = {items.filter(item => item.isDone).length}  />
             </div>
     );
 };
