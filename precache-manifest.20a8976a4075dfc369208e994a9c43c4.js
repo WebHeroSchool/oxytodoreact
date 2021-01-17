@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a1e9ae6cd7bf071e89dc0acb8932555e",
+    "revision": "3eb86bc5d59687c89203b263b02b197d",
     "url": "/oxytodoreact/index.html"
   },
   {
-    "revision": "5a79d0c08e048a1f1552",
+    "revision": "fd60c4511150c3e05110",
     "url": "/oxytodoreact/static/css/main.f67b44c7.chunk.css"
   },
   {
-    "revision": "71e2a14d53a6b9837789",
-    "url": "/oxytodoreact/static/js/2.e80936e1.chunk.js"
+    "revision": "0361c364c05f03d70871",
+    "url": "/oxytodoreact/static/js/2.7e3c050e.chunk.js"
   },
   {
     "revision": "9230f7c4dbd642e80c48e1240613b9a9",
-    "url": "/oxytodoreact/static/js/2.e80936e1.chunk.js.LICENSE.txt"
+    "url": "/oxytodoreact/static/js/2.7e3c050e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "5a79d0c08e048a1f1552",
-    "url": "/oxytodoreact/static/js/main.424a4eaa.chunk.js"
+    "revision": "fd60c4511150c3e05110",
+    "url": "/oxytodoreact/static/js/main.0ce83be2.chunk.js"
   },
   {
     "revision": "21a1c8033980c4771012",
