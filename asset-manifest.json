@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/WebHeroSchool/oxytodoreact/static/css/main.b4d36708.chunk.css",
+    "main.js": "/WebHeroSchool/oxytodoreact/static/js/main.424a4eaa.chunk.js",
+    "main.js.map": "/WebHeroSchool/oxytodoreact/static/js/main.424a4eaa.chunk.js.map",
+    "runtime-main.js": "/WebHeroSchool/oxytodoreact/static/js/runtime-main.048f66cb.js",
+    "runtime-main.js.map": "/WebHeroSchool/oxytodoreact/static/js/runtime-main.048f66cb.js.map",
+    "static/js/2.e80936e1.chunk.js": "/WebHeroSchool/oxytodoreact/static/js/2.e80936e1.chunk.js",
+    "static/js/2.e80936e1.chunk.js.map": "/WebHeroSchool/oxytodoreact/static/js/2.e80936e1.chunk.js.map",
+    "index.html": "/WebHeroSchool/oxytodoreact/index.html",
+    "precache-manifest.d324a6e115a59e40aa45b552aaf60f82.js": "/WebHeroSchool/oxytodoreact/precache-manifest.d324a6e115a59e40aa45b552aaf60f82.js",
+    "service-worker.js": "/WebHeroSchool/oxytodoreact/service-worker.js",
+    "static/css/main.b4d36708.chunk.css.map": "/WebHeroSchool/oxytodoreact/static/css/main.b4d36708.chunk.css.map",
+    "static/js/2.e80936e1.chunk.js.LICENSE.txt": "/WebHeroSchool/oxytodoreact/static/js/2.e80936e1.chunk.js.LICENSE.txt",
+    "static/media/Fork.svg": "/WebHeroSchool/oxytodoreact/static/media/Fork.b7c30d82.svg",
+    "static/media/WHS_black.svg": "/WebHeroSchool/oxytodoreact/static/media/WHS_black.dc001e86.svg",
+    "static/media/facebook.svg": "/WebHeroSchool/oxytodoreact/static/media/facebook.584b642a.svg",
+    "static/media/github.svg": "/WebHeroSchool/oxytodoreact/static/media/github.3feade3d.svg",
+    "static/media/mail.svg": "/WebHeroSchool/oxytodoreact/static/media/mail.20386136.svg",
+    "static/media/star.svg": "/WebHeroSchool/oxytodoreact/static/media/star.a3b344a2.svg",
+    "static/media/telegram.svg": "/WebHeroSchool/oxytodoreact/static/media/telegram.4073458b.svg",
+    "static/media/App.module.css": "/WebHeroSchool/oxytodoreact/static/media/thomas-heintz-0tgMnMIYQ9Y-unsplash.15df3a30.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.048f66cb.js",
+    "static/js/2.e80936e1.chunk.js",
+    "static/css/main.b4d36708.chunk.css",
+    "static/js/main.424a4eaa.chunk.js"
+  ]
+}
